@@ -11,11 +11,27 @@ tasks.forEach((task,index)=>{
 let li=document.createElement("li");
 
 li.innerHTML=`
-<span onclick="toggleTask(${index})" class="${task.done ? 'completed':''}">
+
+<div class="task-left">
+
+<input type="checkbox" ${task.done ? "checked":""} onclick="toggleTask(${index})">
+
+<div>
+
+<div class="${task.done ? "completed":""}">
 ${task.text}
-</span>
+</div>
+
+<div class="deadline">
+Deadline: ${task.deadline || "-"}
+</div>
+
+</div>
+
+</div>
 
 <button class="delete" onclick="deleteTask(${index})">X</button>
+
 `;
 
 taskList.appendChild(li);
@@ -29,15 +45,18 @@ localStorage.setItem("tasks",JSON.stringify(tasks));
 function addTask(){
 
 const input=document.getElementById("taskInput");
+const deadline=document.getElementById("deadlineInput");
 
 if(input.value==="") return;
 
 tasks.push({
 text:input.value,
+deadline:deadline.value,
 done:false
 });
 
 input.value="";
+deadline.value="";
 
 renderTasks();
 
