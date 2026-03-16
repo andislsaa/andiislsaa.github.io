@@ -12,7 +12,7 @@ let li=document.createElement("li");
 
 li.innerHTML=`
 
-<div class="task-left">
+<div class="task-info">
 
 <strong>${task.text}</strong>
 
@@ -20,10 +20,19 @@ li.innerHTML=`
 Deadline: ${task.deadline || "-"}
 </div>
 
-<select class="status-select" onchange="changeStatus(${index}, this.value)">
-<option value="Belum Dikerjakan" ${task.status==="Belum Dikerjakan" ? "selected":""}>Belum Dikerjakan</option>
-<option value="Sedang Dikerjakan" ${task.status==="Sedang Dikerjakan" ? "selected":""}>Sedang Dikerjakan</option>
-<option value="Selesai" ${task.status==="Selesai" ? "selected":""}>Selesai</option>
+<select class="status" onchange="changeStatus(${index}, this.value)">
+<option value="Belum Dikerjakan" ${task.status==="Belum Dikerjakan" ? "selected":""}>
+Belum Dikerjakan
+</option>
+
+<option value="Sedang Dikerjakan" ${task.status==="Sedang Dikerjakan" ? "selected":""}>
+Sedang Dikerjakan
+</option>
+
+<option value="Selesai" ${task.status==="Selesai" ? "selected":""}>
+Selesai
+</option>
+
 </select>
 
 </div>
