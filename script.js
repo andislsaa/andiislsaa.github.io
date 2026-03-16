@@ -14,23 +14,17 @@ li.innerHTML=`
 
 <div class="task-left">
 
-<input type="checkbox" ${task.done ? "checked":""} onclick="toggleTask(${index})">
-
-<div>
-
-<div class="${task.done ? "completed":""}">
-${task.text}
-</div>
-
-<div class="status ${task.done ? "done":"pending"}">
-Status: ${task.done ? "Completed":"Pending"}
-</div>
+<strong>${task.text}</strong>
 
 <div class="deadline">
 Deadline: ${task.deadline || "-"}
 </div>
 
-</div>
+<select class="status-select" onchange="changeStatus(${index}, this.value)">
+<option value="Belum Dikerjakan" ${task.status==="Belum Dikerjakan" ? "selected":""}>Belum Dikerjakan</option>
+<option value="Sedang Dikerjakan" ${task.status==="Sedang Dikerjakan" ? "selected":""}>Sedang Dikerjakan</option>
+<option value="Selesai" ${task.status==="Selesai" ? "selected":""}>Selesai</option>
+</select>
 
 </div>
 
@@ -56,7 +50,7 @@ if(input.value==="") return;
 tasks.push({
 text:input.value,
 deadline:deadline.value,
-done:false
+status:"Belum Dikerjakan"
 });
 
 input.value="";
@@ -66,9 +60,9 @@ renderTasks();
 
 }
 
-function toggleTask(index){
+function changeStatus(index,status){
 
-tasks[index].done=!tasks[index].done;
+tasks[index].status=status;
 
 renderTasks();
 
