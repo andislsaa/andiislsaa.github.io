@@ -1,5 +1,5 @@
 body{
-font-family: Arial, sans-serif;
+font-family: Arial;
 background: linear-gradient(135deg,#4facfe,#00f2fe);
 height:100vh;
 display:flex;
@@ -11,7 +11,7 @@ align-items:center;
 background:white;
 padding:30px;
 border-radius:15px;
-width:450px;
+width:470px;
 box-shadow:0 10px 30px rgba(0,0,0,0.2);
 }
 
@@ -66,31 +66,18 @@ align-items:center;
 
 .task-left{
 display:flex;
-align-items:flex-start;
-gap:10px;
-}
-
-.completed{
-text-decoration:line-through;
-color:gray;
-}
-
-.status{
-font-size:12px;
-margin-top:3px;
-}
-
-.pending{
-color:orange;
-}
-
-.done{
-color:green;
+flex-direction:column;
 }
 
 .deadline{
 font-size:12px;
-color:#666;
+color:#555;
+}
+
+.status-select{
+margin-top:5px;
+padding:3px;
+border-radius:5px;
 }
 
 .delete{
