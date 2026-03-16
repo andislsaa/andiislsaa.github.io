@@ -22,6 +22,10 @@ li.innerHTML=`
 ${task.text}
 </div>
 
+<div class="status ${task.done ? "done":"pending"}">
+Status: ${task.done ? "Completed":"Pending"}
+</div>
+
 <div class="deadline">
 Deadline: ${task.deadline || "-"}
 </div>
